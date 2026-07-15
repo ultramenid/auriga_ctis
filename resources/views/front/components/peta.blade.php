@@ -1,8 +1,8 @@
 <style>
     #map {
         width: 100%;
-        height: 400px;
-        background: #264c16;
+        height: 460px;
+        background: #0F2609;
         position: relative;
     }
 
@@ -135,11 +135,27 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prunecluster@2.1.0/LeafletStyleSheet.css" />
 
-<div class="w-full bg-[#264c16] py-10 mt-16 px-4 text-white poppins-regular">
+<div class="w-full bg-[#0B1E07] pt-4 pb-14 px-4 text-white">
+
+    {{-- PANEL HEADER --}}
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 py-3">
+        <h2 class="flex items-center gap-2 font-data text-[10px] tracking-[0.22em] uppercase text-white/60">
+            <span class="w-2 h-2 rounded-full bg-[#9BDB4D]"></span>
+            Peta Sebaran Kasus
+        </h2>
+        <span class="hidden sm:block font-data text-[10px] tracking-[0.22em] uppercase text-white/35">
+            Klik titik untuk detail kasus
+        </span>
+    </div>
+
+    {{-- FILTERS (di atas peta) --}}
+    <div class="max-w-7xl mx-auto">
+        @livewire('peta.map-filter')
+    </div>
 
     {{-- MAP WRAPPER --}}
-    <div class="max-w-7xl mx-auto mb-8 sm:mb-10"
-        style="position: relative; overflow: hidden; border-radius: 14px;">
+    <div class="max-w-7xl mx-auto"
+        style="position: relative; overflow: hidden; border-radius: 10px; border: 1px solid rgba(255,255,255,.14);">
 
         {{-- SIDEBAR --}}
         <div id="map-sidebar">
@@ -208,16 +224,7 @@
         </div>
         {{-- END SIDEBAR --}}
 
-        <div id="map" class="bg-[#264c16] relative z-1"></div>
-    </div>
-
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-center text-xl font-semibold mb-6 md:hidden tracking-wide">
-            Cari Data Indonesia
-        </h2>
-        <div class="">
-            @livewire('peta.map-filter')
-        </div>
+        <div id="map" class="relative z-1"></div>
     </div>
 
 </div>
@@ -426,9 +433,9 @@
 
             var geoLayer = L.geoJSON(data, {
                 style: {
-                    color:       "#ffffff",
+                    color:       "#0F2609",
                     weight:      1,
-                    fillColor:   "#BFC9D2",
+                    fillColor:   "#D9E0CC",
                     fillOpacity: 1
                 }
             }).addTo(map);
